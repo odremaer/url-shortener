@@ -13,11 +13,11 @@ class Query(graphene.ObjectType):
     """"Создает список типа URLType, resolve_urls возвращает все URL'ы из базы данных"""
     urls = graphene.List(URLType)
 
-    def resolve_urls(self, info, **kwargs):
+    def resolve_urls(self, info,):
         return URL.objects.all()
 
 
-class CreateURL(graphene.Mutation):
+class URLCreator(graphene.Mutation):
     """Возвращает содержимое url после мутации(запроса)"""
     url = graphene.Field(URLType)
 
@@ -28,7 +28,8 @@ class CreateURL(graphene.Mutation):
         url = URL(full_url=full_url)
         url.save()
 
+        return URLCreator(url=url)
 
 class Mutation(graphene.ObjectType):
     """хранит все мутации"""
-    create_url = CreateURL.Field()
+    create_url = URLCreator.Field()
