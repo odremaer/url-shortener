@@ -35,12 +35,15 @@
 <!--      <input class="main__input" type="text"/>-->
 <!--      <button class="main__btn">отправить</button>-->
 <!--  </div>-->
-
-<form action="/new/" method="post">
+<h1>{{ error }} </h1>
+<form action="/" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
+
 </form>
+<h2>{{ ur_link }}</h2>
+<a href = '{{ url_hash }}'>{{ url_hash }}</a>
 
 
 <!--<script>-->
