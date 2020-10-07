@@ -39,6 +39,21 @@ def get_name(request):
         return render(request, 'shortenerapp/home.html', context=context)
 
 
+
+        url = URL()
+        url.save()
+        # hash = url.save(full_url)
+        # print(hash)
+
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+
+            return HttpResponse(full_url)
+
+    # if a GET (or any other method) we'll create a blank form
     else:
         # if request.method == 'GET'
         form = URLForm()
