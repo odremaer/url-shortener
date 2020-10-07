@@ -1,6 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 
+
 from .models import URL
 
 
@@ -11,6 +12,7 @@ class URLType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     """"Создает список типа URLType, resolve_urls возвращает все URL'ы из базы данных"""
+    """Creating a list with type URLType, resolve_urls return all URL's from database"""
     urls = graphene.List(URLType)
 
     def resolve_urls(self, info,):
@@ -19,6 +21,7 @@ class Query(graphene.ObjectType):
 
 class URLCreator(graphene.Mutation):
     """Возвращает содержимое url после мутации(запроса)"""
+    """Returns url after mutation"""
     url = graphene.Field(URLType)
 
     class Arguments:

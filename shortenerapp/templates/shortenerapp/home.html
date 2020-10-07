@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       body, html {
+        padding: 0px;
+        margin: 0px;
+        }
+        .main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .main input {
+          height: 36px;
+          width: 40%;
+
+         }
+          .main___btn {
+          color: white;
+          border-radius: 4px;
+
+            height: 36px;
+            width: 180px;
+            border: 1px solid blue;
+         }
+    </style>
+</head>
+<body>
+
+<!--  <div class="main">-->
+<!--      <input class="main__input" type="text"/>-->
+<!--      <button class="main__btn">отправить</button>-->
+<!--  </div>-->
+
+<form action="/new/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+
+<!--<script>-->
+<!--   const send = async (data) => {-->
+<!--     await fetch('http://localhost:8000/new', {-->
+<!--       method: "POST",-->
+<!--       mode: "no-cors",-->
+<!--       body: {-->
+<!--         url: data,-->
+<!--       }-->
+<!--     })-->
+<!--   }-->
+
+
+
+
+<!--    let input = document.querySelector('.main__input')-->
+<!--    let value = input.value-->
+<!--    input.addEventListener('input', ()=> {-->
+
+<!--      console.log(input.value)-->
+<!--    })-->
+<!--    let button = document.querySelector('.main__btn')-->
+<!--    button.addEventListener('click', ()=> {-->
+<!--       console.log('click')-->
+<!--    })-->
+<!--</script>-->
+
+
+
+
+
+
+
+</html>
