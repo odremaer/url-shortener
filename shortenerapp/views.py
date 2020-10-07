@@ -18,13 +18,18 @@ def get_name(request):
         # create a form instance and populate it with data from the request:
         form = URLForm(request.POST)
         full_url = request.POST['full_url']
+        url = URL()
+        url.save()
+        # hash = url.save(full_url)
+        # print(hash)
+
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            url = URL()
-            return HttpResponse(str(url.url_hash))
+
+            return HttpResponse(full_url)
 
     # if a GET (or any other method) we'll create a blank form
     else:
